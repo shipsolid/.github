@@ -1,0 +1,18 @@
+name: Build code and call reusable deploy workflow TEMPLATE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+jobs:
+  build:
+    uses: ./.github/workflows/reusable-WeatherForecast.build.yml
+
+  deploy:
+    needs: build
+    uses: ./.github/workflows/reusable-WeatherForecast.deploy.yml
+    with:
+      package-name: WeatherForecast.service
