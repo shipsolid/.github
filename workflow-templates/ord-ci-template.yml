@@ -9,10 +9,10 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/reusable-WeatherForecast.build.yml
+    uses: shipsolid/app.weatherforecast/.github/workflows/reusable-WeatherForecast.build.yml@main
 
   deploy:
     needs: build
-    uses: ./.github/workflows/reusable-WeatherForecast.deploy.yml
+    uses: shipsolid/app.weatherforecast/.github/workflows/reusable-WeatherForecast.deploy.yml@main
     with:
       package-name: WeatherForecast.service
