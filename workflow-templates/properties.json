@@ -1,0 +1,11 @@
+{
+  "templates": {
+    "docker-ghcr-build-and-deploy.yml": {
+      "name": "Build & Deploy Docker to GHCR",
+      "description": "Push a Docker image to ghcr.io",
+      "iconName": "check-square",
+      "categories": ["deployment", "container"],
+      "defaultFilename": "ghcr.yml"
+    }
+  }
+}
