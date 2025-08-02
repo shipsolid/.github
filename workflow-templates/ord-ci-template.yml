@@ -1,4 +1,11 @@
-name: Build code and call reusable deploy workflow TEMPLATE
+name: Build and Deploy Docker to GHCR
+
+description: |
+  Build a Docker image and push it to GitHub Container Registry (ghcr.io) on push to main. 
+  This starter workflow calls reusable build and deploy workflows.
+
+icon: check-square
+categories: [deployment, container]
 
 on:
   workflow_dispatch:
@@ -9,9 +16,11 @@ on:
 
 jobs:
   build:
+    name: Build Docker Image
     uses: shipsolid/app.weatherforecast/.github/workflows/reusable-WeatherForecast.build.yml@main
 
   deploy:
+    name: Deploy to GHCR
     needs: build
     uses: shipsolid/app.weatherforecast/.github/workflows/reusable-WeatherForecast.deploy.yml@main
     with:
